@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+  
+  body {
+    background-color: #030712;
+    color: #cbd5e1;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(34, 211, 238, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.05) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+
+  * {
+    border-color: #1E293B;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #1E293B;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #94a3b8;
+  }
+
+  /* Fix Browser Autofill Yellow Background */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px #0B1120 inset !important;
+      -webkit-text-fill-color: white !important;
+      transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+@layer components {
+  .card {
+    background-color: rgba(11, 17, 32, 0.6);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #22d3ee 0%, #2563eb 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.3s;
+  }
+  .btn-primary:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
+  }
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #e2e8f0;
+    font-weight: 500;
+    font-size: 0.875rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    border-radius: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.875rem;
+    transition: all 0.3s;
+  }
+  .input::placeholder {
+    color: #94a3b8;
+  }
+  .input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.5);
+    border-color: rgba(14, 165, 233, 0.5);
+  }
+  
+  .label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.025em;
+  }
+}
+
+@layer utilities {
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+  .animate-slide-up { animation: slideUp 0.5s ease-out; }
+}
